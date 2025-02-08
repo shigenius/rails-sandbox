@@ -7,3 +7,8 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+ActiveRecord::Base.transaction do
+  post = Post.create!(title: "タイトルタイトルタイトル", body: "本文本文本文")
+  Comment.create!(post:, body: "コメント本文コメント本文コメント本文")
+end
